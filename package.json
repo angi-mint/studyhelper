@@ -1,0 +1,20 @@
+{
+  "name": "typescript-assignment",
+  "version": "0.0.1",
+  "description": "A small study helper, written in typescript",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "author": {
+    "name": "Angi Mint",
+    "email": "68991185+angi-mint@users.noreply.github.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
+}
