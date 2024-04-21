@@ -134,3 +134,20 @@ svg {
 .controller .btn:hover {
     background-color: #f0f0f0;
 }
+
+/* Timer */
+.timer-container {
+    top: 50%;
+    transform: translateY(50%);
+    text-align: center;
+}
+
+.timer p {
+    display: inline;
+    font-weight: 700;
+    font-size: 7rem;
+}
+
+.controller {
+    margin-top: var(--spacing-4);
+}
