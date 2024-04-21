@@ -1,0 +1,153 @@
+@import url("https://p.typekit.net/p.css?s=1&k=orc2hsm&ht=tk&f=24284.24285.24288.24289&a=170890991&app=typekit&e=css");
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/d7d9ce/00000000000000007735ddf7/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/d7d9ce/00000000000000007735ddf7/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/d7d9ce/00000000000000007735ddf7/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+    font-display:auto;font-style:italic;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/c2ccf4/00000000000000007735ddfd/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/c2ccf4/00000000000000007735ddfd/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/c2ccf4/00000000000000007735ddfd/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/36bc10/00000000000000007735ddfb/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/36bc10/00000000000000007735ddfb/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/36bc10/00000000000000007735ddfb/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+    font-display:auto;font-style:italic;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/bc3ddc/00000000000000007735ddfa/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/bc3ddc/00000000000000007735ddfa/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/bc3ddc/00000000000000007735ddfa/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+    font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+.tk-monarcha { font-family: "monarcha",serif; }
+
+
+:root {
+    --border-radius-1: 5px;
+    --border-radius-2: 10px;
+
+    --spacing-1: 5px;
+    --spacing-2: 10px;
+    --spacing-3: 15px;
+    --spacing-4: 20px;
+
+    --color-primary: #1A237E;
+    --color-secondary: #512DA8;
+    --color-background: #AAB5EE;
+    --color-offwhite: #F6F6F6;
+    --color-success: #26A69A;
+    --color-error: #FF7043;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    color: inherit;
+    font-family: "monarcha", sans-serif;
+}
+
+/* Link Box */
+.link-box {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    padding: var(--spacing-3);
+    transform: translateY(-50%);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-2) 0 0 var(--border-radius-2);
+}
+
+.link-list li {
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: var(--color-offwhite);
+    border-radius: var(--border-radius-1);
+}
+
+.link-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Navigation */
+#nav-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    z-index: 1;
+    background-color: var(--color-background);
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+#nav-side h2 {
+    margin: var(--spacing-3);
+    text-align: center;
+}
+
+.nav-links li {
+    padding-top: var(--spacing-3);
+    text-align: center;
+}
+
+.nav-others {
+    position: absolute;
+    bottom: var(--spacing-3);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#close-btn {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+}
+
+/* Buttons */
+.btn {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    color: #ccc;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+.controller .btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Timer */
+.timer-container {
+    top: 50%;
+    transform: translateY(50%);
+    text-align: center;
+}
+
+.timer p {
+    display: inline;
+    font-weight: 700;
+    font-size: 7rem;
+}
+
+.controller {
+    margin-top: var(--spacing-4);
+}
