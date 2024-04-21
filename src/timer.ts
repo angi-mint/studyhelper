@@ -29,4 +29,10 @@ function startTimer() {
     }, 1000)
 }
 
-export { startTimer }
+function pauseTimer() {
+    startBtnEl.disabled = false;
+    pauseBtnEl.disabled = true;
+    clearInterval(interval)
+}
+
+export { startTimer, pauseTimer }
