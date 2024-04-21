@@ -77,3 +77,60 @@
 .link-list li:last-child {
     margin-bottom: 0;
 }
+
+/* Navigation */
+#nav-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    z-index: 1;
+    background-color: var(--color-background);
+    height: 100%;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+#nav-side h2 {
+    margin: var(--spacing-3);
+    text-align: center;
+}
+
+.nav-links li {
+    padding-top: var(--spacing-3);
+    text-align: center;
+}
+
+.nav-others {
+    position: absolute;
+    bottom: var(--spacing-3);
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#close-btn {
+    position: absolute;
+    top: var(--spacing-4);
+    right: var(--spacing-4);
+}
+
+/* Buttons */
+.btn {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    color: #ccc;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+.controller .btn:hover {
+    background-color: #f0f0f0;
+}
