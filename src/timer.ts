@@ -1,6 +1,8 @@
-import {pauseBtnEl, startBtnEl, stopBtnEl, timeMin, timerMinEl, timerSecEl, timeSec} from "./dom-utils.ts";
+import { startBtnEl, pauseBtnEl, stopBtnEl, timerMinEl, timerSecEl, timeMin, timeSec} from "./dom-utils.ts";
 
 let interval: number;
+const start: Array<number> = [timeMin, timeSec];
+
 let minutes: number = timeMin;
 let seconds: number = timeSec;
 
@@ -18,7 +20,7 @@ function startTimer() {
             timerSecEl.innerText = formatNumber(seconds);
         } else {
             if (seconds === 0 && minutes === 0){
-                // TODO: stop the timer
+                stopTimer();
             } else {
                 seconds = 59;
                 minutes -= 1;
@@ -35,4 +37,13 @@ function pauseTimer() {
     clearInterval(interval)
 }
 
-export { startTimer, pauseTimer }
+function stopTimer() {
+    stopBtnEl.disabled = true;
+    pauseTimer();
+    timerMinEl.innerText = formatNumber(start[0]);
+    timerSecEl.innerText = formatNumber(start[1]);
+    minutes = start[0];
+    seconds = start[1];
+}
+
+export { startTimer, pauseTimer, stopTimer }
