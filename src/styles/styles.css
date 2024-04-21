@@ -1,0 +1,15 @@
+:root {
+    --border-radius-1: 5px;
+    --border-radius-2: 10px;
+
+    --spacing-1: 5px;
+    --spacing-2: 10px;
+    --spacing-3: 15px;
+    --spacing-4: 20px;
+
+    --color-primary: #1A237E;
+    --color-secondary: #512DA8;
+    --color-background: #AAB5EE;
+    --color-success: #26A69A;
+    --color-error: #FF7043;
+}
