@@ -1,3 +1,32 @@
+@import url("https://p.typekit.net/p.css?s=1&k=orc2hsm&ht=tk&f=24284.24285.24288.24289&a=170890991&app=typekit&e=css");
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/d7d9ce/00000000000000007735ddf7/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/d7d9ce/00000000000000007735ddf7/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/d7d9ce/00000000000000007735ddf7/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
+    font-display:auto;font-style:italic;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/c2ccf4/00000000000000007735ddfd/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/c2ccf4/00000000000000007735ddfd/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/c2ccf4/00000000000000007735ddfd/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/36bc10/00000000000000007735ddfb/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff2"),url("https://use.typekit.net/af/36bc10/00000000000000007735ddfb/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("woff"),url("https://use.typekit.net/af/36bc10/00000000000000007735ddfb/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i7&v=3") format("opentype");
+    font-display:auto;font-style:italic;font-weight:700;font-stretch:normal;
+}
+
+@font-face {
+    font-family:"monarcha";
+    src:url("https://use.typekit.net/af/bc3ddc/00000000000000007735ddfa/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/bc3ddc/00000000000000007735ddfa/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/bc3ddc/00000000000000007735ddfa/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
+    font-display:auto;font-style:normal;font-weight:700;font-stretch:normal;
+}
+
+.tk-monarcha { font-family: "monarcha",serif; }
+
+
 :root {
     --border-radius-1: 5px;
     --border-radius-2: 10px;
