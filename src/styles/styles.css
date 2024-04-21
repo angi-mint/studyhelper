@@ -39,6 +39,7 @@
     --color-primary: #1A237E;
     --color-secondary: #512DA8;
     --color-background: #AAB5EE;
+    --color-offwhite: #F6F6F6;
     --color-success: #26A69A;
     --color-error: #FF7043;
 }
@@ -50,4 +51,29 @@
     list-style: none;
     color: inherit;
     font-family: "monarcha", sans-serif;
+}
+
+/* Link Box */
+.link-box {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    padding: var(--spacing-3);
+    transform: translateY(-50%);
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-2) 0 0 var(--border-radius-2);
+}
+
+.link-list li {
+    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: var(--color-offwhite);
+    border-radius: var(--border-radius-1);
+}
+
+.link-list li:last-child {
+    margin-bottom: 0;
 }
