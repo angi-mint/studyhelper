@@ -24,43 +24,39 @@ function saveSession(category: string, subject: string, timeInSec: number) {
 }
 
 function getCategoryTimes(): number[] {
-    // get all entries that have the category lecture, add all times together then do same for the other 2 categories
-    let categoryTimes: number[] = [0, 0, 0];
+    const categories = ['lecture', 'project', 'studying'];
+    let categoryTimes: number[] = Array(categories.length).fill(0);
 
     if (!localStorage.getItem("trackedSessions")) return categoryTimes;
     let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
 
     trackedSessions.forEach((session: Session) => {
-        if (session.category === "lecture") categoryTimes[0] += session.time;
-        else if (session.category === "project") categoryTimes[1] += session.time;
-        else if(session.category === "studying") categoryTimes[2] += session.time;
+        const index = categories.indexOf(session.category);
+        if (index !== -1) {
+            categoryTimes[index] += session.time;
+        }
     });
 
-    categoryTimes.forEach((time, index) => {
-        categoryTimes[index] = toHours(time);
-    });
+    categoryTimes = categoryTimes.map(toHours);
 
     return categoryTimes;
 }
 
 function getSubjectTimes() {
-    let subjectTimes: number[] = [0, 0, 0, 0, 0];
+    const subjects = ['t2', 't3', 'u1', 'd1', 'p1'];
+    let subjectTimes: number[] = Array(subjects.length).fill(0);
 
     if (!localStorage.getItem("trackedSessions")) return subjectTimes;
     let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
 
     trackedSessions.forEach((session: Session) => {
-        if (session.subject === "t2") subjectTimes[0] += session.time;
-        else if (session.subject === "t3") subjectTimes[1] += session.time;
-        else if(session.subject === "u1") subjectTimes[2] += session.time;
-        else if(session.subject === "d1") subjectTimes[3] += session.time;
-        else if(session.subject === "p1") subjectTimes[4] += session.time;
+        const index = subjects.indexOf(session.subject);
+        if (index !== -1) {
+            subjectTimes[index] += session.time;
+        }
     });
 
-    subjectTimes.forEach((time, index) => {
-        subjectTimes[index] = toHours(time);
-    });
-
+    subjectTimes = subjectTimes.map(toHours);
     return subjectTimes;
 }
 
