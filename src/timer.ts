@@ -4,6 +4,8 @@ import {
     categoryEl, subjectEl
 } from "./dom-utils.ts";
 
+import {saveSession} from "./localstorage.ts";
+
 let interval: number;
 const start: Array<number> = [timeMin, timeSec];
 
@@ -48,6 +50,10 @@ function stopTimer() {
     // enable start, disable pause and stop and clear the interval
     toggleState([stopBtnEl, categoryEl, subjectEl]);
     pauseTimer();
+    // get the amount of time spent on the timer in seconds
+    const timeSpent = (start[0] * 60) + start[1] - (minutes * 60 + seconds);
+    // save the session to local storage
+    saveSession(categoryEl.value, subjectEl.value, timeSpent);
     // reset the timer
     timerMinEl.innerText = formatNumber(start[0]);
     timerSecEl.innerText = formatNumber(start[1]);
