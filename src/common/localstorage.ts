@@ -1,4 +1,4 @@
-import { Session } from "./interfaces.ts";
+import {Link, Session} from "./interfaces.ts";
 
 function toHours(timeInSec: number) {
     return Number((timeInSec / 3600).toFixed(2));
@@ -54,4 +54,14 @@ function totalTimeSpent(): number {
     return toHours(trackedSessions.reduce((acc: number, session: Session) => acc + session.time, 0))
 }
 
-export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent }
+function setLink(subject: string, link: string, name: string) {
+    if (!localStorage.getItem(`link-${subject}`)) {
+        localStorage.setItem(`link-${subject}`, JSON.stringify([{ name, url: link }]));
+    } else {
+        let links: Array<Link> = JSON.parse(localStorage.getItem(`link-${subject}`) as string);
+        links.push({ name, url: link });
+        localStorage.setItem(`link-${subject}`, JSON.stringify(links));
+    }
+}
+
+export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent, setLink }
