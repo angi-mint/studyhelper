@@ -1,7 +1,10 @@
 import { Session } from "./interfaces.ts";
 
-function saveSession(category: string, subject: string, timeInSec: number) {
+function toHours(timeInSec: number) {
+    return Number((timeInSec / 3600).toFixed(2));
+}
 
+function saveSession(category: string, subject: string, timeInSec: number) {
     // if there is no entry yey, create an empty one
     if (!localStorage.getItem("trackedSessions")) localStorage.setItem("trackedSessions", "[]");
 
@@ -19,4 +22,36 @@ function saveSession(category: string, subject: string, timeInSec: number) {
     localStorage.setItem('trackedSessions', JSON.stringify(trackedSessions));
 }
 
-export { saveSession }
+function getTimes(items: string[], property: keyof Session): number[] {
+    let times: number[] = Array(items.length).fill(0);
+
+    if (!localStorage.getItem("trackedSessions")) return times;
+    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
+
+    trackedSessions.forEach((session: Session) => {
+        const index: number = items.indexOf(<string>session[property]);
+        if (index !== -1) {
+            times[index] += session.time;
+        }
+    });
+
+    return times.map(toHours);
+}
+
+function getCategoryTimes(): number[] {
+    const categories: string[] = ['lecture', 'project', 'studying'];
+    return getTimes(categories, 'category');
+}
+
+function getSubjectTimes(): number[] {
+    const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
+    return getTimes(subjects, 'subject');
+}
+
+function totalTimeSpent(): number {
+    if (!localStorage.getItem("trackedSessions")) return 0;
+    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
+    return toHours(trackedSessions.reduce((acc: number, session: Session) => acc + session.time, 0))
+}
+
+export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent }

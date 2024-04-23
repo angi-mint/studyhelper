@@ -8,15 +8,21 @@ const stopBtnEl = document.querySelector(".btn-stop") as HTMLButtonElement;
 
 const timerMinEl = document.querySelector("#timer-minutes") as HTMLParagraphElement;
 const timerSecEl = document.querySelector("#timer-seconds") as HTMLParagraphElement;
-const timeMin: number = Number(timerMinEl.textContent);
-const timeSec: number= Number(timerSecEl.textContent);
 
 const categoryEl = document.querySelector("#category") as HTMLSelectElement;
 const subjectEl = document.querySelector("#subject") as HTMLSelectElement;
 
+const chartCategoryEl = document.querySelector("#chart-category") as HTMLCanvasElement;
+const chartSubjectEl = document.querySelector("#chart-subject") as HTMLCanvasElement;
+
+const textCategoryEl = document.querySelector("#text-category") as HTMLParagraphElement;
+const textSubjectEl = document.querySelector("#text-subject") as HTMLParagraphElement;
+const textTotalEl = document.querySelector("#text-total") as HTMLParagraphElement;
+
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,
-    timerMinEl, timerSecEl, timeMin, timeSec,
-    categoryEl, subjectEl
+    timerMinEl, timerSecEl,
+    categoryEl, subjectEl,
+    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl
 }
