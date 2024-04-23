@@ -5,7 +5,6 @@ function toHours(timeInSec: number) {
 }
 
 function saveSession(category: string, subject: string, timeInSec: number) {
-
     // if there is no entry yey, create an empty one
     if (!localStorage.getItem("trackedSessions")) localStorage.setItem("trackedSessions", "[]");
 
@@ -23,41 +22,29 @@ function saveSession(category: string, subject: string, timeInSec: number) {
     localStorage.setItem('trackedSessions', JSON.stringify(trackedSessions));
 }
 
+function getTimes(items: string[], property: keyof Session): number[] {
+    let times: number[] = Array(items.length).fill(0);
+
+    if (!localStorage.getItem("trackedSessions")) return times;
+    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
+
+    trackedSessions.forEach((session: Session) => {
+        const index: number = items.indexOf(<string>session[property]);
+        if (index !== -1) {
+            times[index] += session.time;
+        }
+    });
+
+    return times.map(toHours);
+}
+
 function getCategoryTimes(): number[] {
-    const categories = ['lecture', 'project', 'studying'];
-    let categoryTimes: number[] = Array(categories.length).fill(0);
-
-    if (!localStorage.getItem("trackedSessions")) return categoryTimes;
-    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
-
-    trackedSessions.forEach((session: Session) => {
-        const index = categories.indexOf(session.category);
-        if (index !== -1) {
-            categoryTimes[index] += session.time;
-        }
-    });
-
-    categoryTimes = categoryTimes.map(toHours);
-
-    return categoryTimes;
+    const categories: string[] = ['lecture', 'project', 'studying'];
+    return getTimes(categories, 'category');
 }
 
-function getSubjectTimes() {
-    const subjects = ['t2', 't3', 'u1', 'd1', 'p1'];
-    let subjectTimes: number[] = Array(subjects.length).fill(0);
-
-    if (!localStorage.getItem("trackedSessions")) return subjectTimes;
-    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
-
-    trackedSessions.forEach((session: Session) => {
-        const index = subjects.indexOf(session.subject);
-        if (index !== -1) {
-            subjectTimes[index] += session.time;
-        }
-    });
-
-    subjectTimes = subjectTimes.map(toHours);
-    return subjectTimes;
+function getSubjectTimes(): number[] {
+    const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
+    return getTimes(subjects, 'subject');
 }
-
 export { saveSession, getCategoryTimes, getSubjectTimes }
