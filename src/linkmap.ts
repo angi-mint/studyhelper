@@ -6,6 +6,12 @@ import { linkmapEl } from "./common/dom-utils.ts";
 
 initNav();
 
+const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
+
+subjects.forEach((subject: string) => {
+    createSubjectDiv(subject);
+});
+
 function closeModal() {
     const modal = document.querySelector('#modal') as HTMLDivElement;
     modal.remove();
