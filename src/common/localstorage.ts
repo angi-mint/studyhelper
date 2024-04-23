@@ -47,4 +47,11 @@ function getSubjectTimes(): number[] {
     const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
     return getTimes(subjects, 'subject');
 }
-export { saveSession, getCategoryTimes, getSubjectTimes }
+
+function totalTimeSpent(): number {
+    if (!localStorage.getItem("trackedSessions")) return 0;
+    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
+    return toHours(trackedSessions.reduce((acc: number, session: Session) => acc + session.time, 0))
+}
+
+export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent }
