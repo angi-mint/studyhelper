@@ -64,4 +64,9 @@ function setLink(subject: string, link: string, name: string) {
     }
 }
 
-export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent, setLink }
+function getLinks(subject: string): Array<Link> {
+    if (!localStorage.getItem(`link-${subject}`)) return [];
+    return JSON.parse(localStorage.getItem(`link-${subject}`) as string);
+}
+
+export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent, setLink, getLinks }
