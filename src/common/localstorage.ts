@@ -1,7 +1,7 @@
 import { Session } from "./interfaces.ts";
 
 function toHours(timeInSec: number) {
-    return timeInSec / 3600;
+    return Number((timeInSec / 3600).toFixed(2));
 }
 
 function saveSession(category: string, subject: string, timeInSec: number) {
