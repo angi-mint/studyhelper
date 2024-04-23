@@ -43,4 +43,25 @@ function getCategoryTimes(): number[] {
     return categoryTimes;
 }
 
-export { saveSession, getCategoryTimes }
+function getSubjectTimes() {
+    let subjectTimes: number[] = [0, 0, 0, 0, 0];
+
+    if (!localStorage.getItem("trackedSessions")) return subjectTimes;
+    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
+
+    trackedSessions.forEach((session: Session) => {
+        if (session.subject === "t2") subjectTimes[0] += session.time;
+        else if (session.subject === "t3") subjectTimes[1] += session.time;
+        else if(session.subject === "u1") subjectTimes[2] += session.time;
+        else if(session.subject === "d1") subjectTimes[3] += session.time;
+        else if(session.subject === "p1") subjectTimes[4] += session.time;
+    });
+
+    subjectTimes.forEach((time, index) => {
+        subjectTimes[index] = toHours(time);
+    });
+
+    return subjectTimes;
+}
+
+export { saveSession, getCategoryTimes, getSubjectTimes }
