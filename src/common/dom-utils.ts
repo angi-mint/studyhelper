@@ -17,11 +17,12 @@ const chartSubjectEl = document.querySelector("#chart-subject") as HTMLCanvasEle
 
 const textCategoryEl = document.querySelector("#text-category") as HTMLParagraphElement;
 const textSubjectEl = document.querySelector("#text-subject") as HTMLParagraphElement;
+const textTotalEl = document.querySelector("#text-total") as HTMLParagraphElement;
 
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
     categoryEl, subjectEl,
-    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl
+    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl
 }
