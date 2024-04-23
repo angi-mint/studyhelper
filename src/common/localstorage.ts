@@ -1,5 +1,9 @@
 import { Session } from "./interfaces.ts";
 
+function toHours(timeInSec: number) {
+    return timeInSec / 3600;
+}
+
 function saveSession(category: string, subject: string, timeInSec: number) {
 
     // if there is no entry yey, create an empty one
@@ -19,7 +23,7 @@ function saveSession(category: string, subject: string, timeInSec: number) {
     localStorage.setItem('trackedSessions', JSON.stringify(trackedSessions));
 }
 
-function getCategoryTimes() {
+function getCategoryTimes(): number[] {
     // get all entries that have the category lecture, add all times together then do same for the other 2 categories
     let categoryTimes: number[] = [0, 0, 0];
 
@@ -31,6 +35,12 @@ function getCategoryTimes() {
         else if (session.category === "project") categoryTimes[1] += session.time;
         else if(session.category === "studying") categoryTimes[2] += session.time;
     });
+
+    categoryTimes.forEach((time, index) => {
+        categoryTimes[index] = toHours(time);
+    });
+
+    return categoryTimes;
 }
 
 export { saveSession, getCategoryTimes }
