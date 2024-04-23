@@ -8,8 +8,8 @@ const stopBtnEl = document.querySelector(".btn-stop") as HTMLButtonElement;
 
 const timerMinEl = document.querySelector("#timer-minutes") as HTMLParagraphElement;
 const timerSecEl = document.querySelector("#timer-seconds") as HTMLParagraphElement;
-const timeMin = Number(timerMinEl.textContent);
-const timeSec = Number(timerSecEl.textContent);
+const timeMin: number = Number(timerMinEl.textContent);
+const timeSec: number= Number(timerSecEl.textContent);
 
 const categoryEl = document.querySelector("#category") as HTMLSelectElement;
 const subjectEl = document.querySelector("#subject") as HTMLSelectElement;
