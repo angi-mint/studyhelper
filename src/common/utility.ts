@@ -1,4 +1,4 @@
-import {closeBtnEl, navigationEL, openBtnEl} from "./dom-utils.ts";
+import { closeBtnEl, navigationEL, openBtnEl } from "./dom-utils.ts";
 
 function initNav() {
     openBtnEl.addEventListener("click", function () {
