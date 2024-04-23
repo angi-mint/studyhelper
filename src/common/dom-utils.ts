@@ -19,10 +19,12 @@ const textCategoryEl = document.querySelector("#text-category") as HTMLParagraph
 const textSubjectEl = document.querySelector("#text-subject") as HTMLParagraphElement;
 const textTotalEl = document.querySelector("#text-total") as HTMLParagraphElement;
 
+const linkmapEl = document.querySelector("#linkmap-container") as HTMLDivElement;
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
     categoryEl, subjectEl,
-    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl
+    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl,
+    linkmapEl
 }
