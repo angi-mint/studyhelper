@@ -13,7 +13,7 @@ const categoryEl = document.querySelector("#category") as HTMLSelectElement;
 const subjectEl = document.querySelector("#subject") as HTMLSelectElement;
 
 const chartCategoryEl = document.querySelector("#chart-category") as HTMLCanvasElement;
-const subjectCategoryEl = document.querySelector("#chart-subject") as HTMLCanvasElement;
+const chartSubjectEl = document.querySelector("#chart-subject") as HTMLCanvasElement;
 
 const textCategoryEl = document.querySelector("#text-category") as HTMLParagraphElement;
 const textSubjectEl = document.querySelector("#text-subject") as HTMLParagraphElement;
@@ -23,5 +23,5 @@ export {
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
     categoryEl, subjectEl,
-    chartCategoryEl, subjectCategoryEl, textCategoryEl, textSubjectEl
+    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl
 }
