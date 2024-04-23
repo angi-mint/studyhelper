@@ -19,4 +19,18 @@ function saveSession(category: string, subject: string, timeInSec: number) {
     localStorage.setItem('trackedSessions', JSON.stringify(trackedSessions));
 }
 
-export { saveSession }
+function getCategoryTimes() {
+    // get all entries that have the category lecture, add all times together then do same for the other 2 categories
+    let categoryTimes: number[] = [0, 0, 0];
+
+    if (!localStorage.getItem("trackedSessions")) return categoryTimes;
+    let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
+
+    trackedSessions.forEach((session: Session) => {
+        if (session.category === "lecture") categoryTimes[0] += session.time;
+        else if (session.category === "project") categoryTimes[1] += session.time;
+        else if(session.category === "studying") categoryTimes[2] += session.time;
+    });
+}
+
+export { saveSession, getCategoryTimes }
