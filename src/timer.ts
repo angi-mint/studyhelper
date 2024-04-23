@@ -1,4 +1,8 @@
-import { startBtnEl, pauseBtnEl, stopBtnEl, timerMinEl, timerSecEl, timeMin, timeSec} from "./dom-utils.ts";
+import {
+    startBtnEl, pauseBtnEl, stopBtnEl,
+    timerMinEl, timerSecEl, timeMin, timeSec,
+    categoryEl, subjectEl
+} from "./dom-utils.ts";
 
 let interval: number;
 const start: Array<number> = [timeMin, timeSec];
@@ -6,14 +10,18 @@ const start: Array<number> = [timeMin, timeSec];
 let minutes: number = timeMin;
 let seconds: number = timeSec;
 
+function toggleState(elements: (HTMLButtonElement | HTMLSelectElement)[]) {
+    elements.forEach(element => {
+            element.disabled = !element.disabled;
+    });
+}
+
 function formatNumber(num: number): string {
     return num < 10 ? `0${num}` : `${num}`;
 }
 
 function startTimer() {
-    startBtnEl.disabled = true;
-    pauseBtnEl.disabled = false;
-    stopBtnEl.disabled = false;
+    toggleState([startBtnEl, pauseBtnEl, stopBtnEl, categoryEl, subjectEl])
     interval = setInterval(() => {
         if (seconds != 0) {
             seconds -= 1;
@@ -32,14 +40,15 @@ function startTimer() {
 }
 
 function pauseTimer() {
-    startBtnEl.disabled = false;
-    pauseBtnEl.disabled = true;
+    toggleState([startBtnEl, pauseBtnEl]);
     clearInterval(interval)
 }
 
 function stopTimer() {
-    stopBtnEl.disabled = true;
+    // enable start, disable pause and stop and clear the interval
+    toggleState([stopBtnEl, categoryEl, subjectEl]);
     pauseTimer();
+    // reset the timer
     timerMinEl.innerText = formatNumber(start[0]);
     timerSecEl.innerText = formatNumber(start[1]);
     minutes = start[0];
