@@ -4,4 +4,9 @@ interface Session {
     time: number;
 }
 
-export type { Session }
+interface Link {
+    name: string;
+    url: string;
+}
+
+export type { Session, Link }
