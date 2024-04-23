@@ -2,9 +2,8 @@ import {
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl, timeMin, timeSec,
     categoryEl, subjectEl
-} from "./dom-utils.ts";
-
-import {saveSession} from "./localstorage.ts";
+} from "../common/dom-utils.ts";
+import { saveSession } from "../common/localstorage.ts";
 
 let interval: number;
 const start: Array<number> = [timeMin, timeSec];

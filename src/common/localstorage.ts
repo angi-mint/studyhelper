@@ -1,4 +1,4 @@
-import {Session} from "./interfaces.ts";
+import { Session } from "./interfaces.ts";
 
 function saveSession(category: string, subject: string, timeInSec: number) {
 
