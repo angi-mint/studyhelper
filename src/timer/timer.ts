@@ -14,7 +14,7 @@ const start: Array<number> = [timeMin, timeSec];
 let minutes: number = timeMin;
 let seconds: number = timeSec;
 
-function toggleState(elements: (HTMLButtonElement | HTMLSelectElement)[]) {
+function toggleState(elements: ( HTMLSelectElement)[]) {
     elements.forEach(element => {
             element.disabled = !element.disabled;
     });
@@ -25,7 +25,11 @@ function formatNumber(num: number): string {
 }
 
 function startTimer() {
-    toggleState([startBtnEl, pauseBtnEl, stopBtnEl, categoryEl, subjectEl])
+    startBtnEl.disabled = true;
+
+    pauseBtnEl.disabled = false;
+    stopBtnEl.disabled = false;
+    toggleState([categoryEl, subjectEl])
     interval = setInterval(() => {
         if (seconds != 0) {
             seconds -= 1;
@@ -44,13 +48,17 @@ function startTimer() {
 }
 
 function pauseTimer() {
-    toggleState([startBtnEl, pauseBtnEl]);
+    pauseBtnEl.disabled = true;
+
+    startBtnEl.disabled = false;
     clearInterval(interval)
 }
 
 function stopTimer() {
     // enable start, disable pause and stop and clear the interval
-    toggleState([stopBtnEl, categoryEl, subjectEl]);
+    stopBtnEl.disabled = true;
+
+    toggleState([categoryEl, subjectEl]);
     pauseTimer();
     // get the amount of time spent on the timer in seconds
     const timeSpent = (start[0] * 60) + start[1] - (minutes * 60 + seconds);
