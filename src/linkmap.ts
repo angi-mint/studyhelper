@@ -1,7 +1,6 @@
 import './styles/styles.css';
-import { initNav } from "./common/utility.ts";
-import { getLinks, setLink } from "./common/localstorage.ts";
-import { Link } from "./common/interfaces.ts";
+import { generateLinkList, initNav } from "./common/utility.ts";
+import { setLink } from "./common/localstorage.ts";
 import { linkmapEl } from "./common/dom-utils.ts";
 
 initNav();
@@ -43,14 +42,14 @@ function createNewLink(subject: string) {
     const cancelButton: HTMLButtonElement = document.querySelector('#linkmap-cancel') as HTMLButtonElement;
     cancelButton.addEventListener('click', closeModal);
 
-    // add event listener to submit button
-    const submitButton: HTMLButtonElement = document.querySelector('#linkmap-add') as HTMLButtonElement;
-    submitButton.addEventListener('submit', function(event: Event) {
+    // add event listener to the form
+    form.addEventListener('submit', function(event: Event) {
         event.preventDefault();
-        const form: HTMLFormElement = document.querySelector('#linkmap-form') as HTMLFormElement;
+        const form = document.querySelector('#linkmap-form') as HTMLFormElement;
         const formData: FormData = new FormData(form);
-        const linkName: string = formData.get('link-name') as string;
-        const linkUrl: string = formData.get('link-url') as string;
+        // ?
+        const linkName = formData.get('link-name') as string;
+        const linkUrl = formData.get('link-url') as string
 
         // set the link in localstorage and close the modal
         setLink(subject, linkUrl, linkName);
@@ -71,23 +70,8 @@ function createSubjectDiv(subject: string) {
     subjectDiv.appendChild(subjectHeading);
 
     // add existing links to link-list
-    const linkList: HTMLUListElement = document.createElement('ul');
+    const linkList = generateLinkList(subject) || document.createElement('ul');
     linkList.classList.add('linkmap-list');
-    const links: Array<Link> = getLinks(subject);
-    if (links.length !== 0) {
-        links.forEach((link: Link) => {
-            const linkItem: HTMLLIElement = document.createElement('li');
-            const linkAnchor: HTMLAnchorElement = document.createElement('a');
-            linkAnchor.href = link.url;
-            linkAnchor.innerHTML = `${link.name}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5"/>
-                <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0z"/>
-            </svg>`;
-            linkItem.appendChild(linkAnchor);
-            linkList.appendChild(linkItem);
-        });
-    }
 
     // add new link button to link-list, add link-list to subject-div
     const newLinkButton: HTMLButtonElement = document.createElement('button');
