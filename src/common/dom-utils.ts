@@ -22,11 +22,13 @@ const textTotalEl = document.querySelector("#text-total") as HTMLParagraphElemen
 const linkmapEl = document.querySelector("#linkmap-container") as HTMLDivElement;
 const linkBox = document.querySelector(".link-box") as HTMLElement;
 
+const dataButton = document.querySelector('#createData') as HTMLButtonElement;
+
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
     categoryEl, subjectEl,
     chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl,
-    linkmapEl, linkBox
+    linkmapEl, linkBox, dataButton
 }
