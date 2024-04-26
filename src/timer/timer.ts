@@ -1,8 +1,9 @@
 import {
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
-    categoryEl, subjectEl
+    categoryEl, subjectEl, linkBox
 } from "../common/dom-utils.ts";
+import {generateLinkList} from "../common/utility.ts";
 import { saveSession } from "../common/localstorage.ts";
 
 const timeMin: number = Number(timerMinEl.textContent);
@@ -14,7 +15,7 @@ const start: Array<number> = [timeMin, timeSec];
 let minutes: number = timeMin;
 let seconds: number = timeSec;
 
-function toggleState(elements: ( HTMLSelectElement)[]) {
+function toggleState(elements: ( HTMLSelectElement)[] ) {
     elements.forEach(element => {
             element.disabled = !element.disabled;
     });
@@ -71,4 +72,13 @@ function stopTimer() {
     seconds = start[1];
 }
 
-export { startTimer, pauseTimer, stopTimer }
+function updateLinks() {
+    const ul = generateLinkList(subjectEl.value)
+    linkBox.classList.add('link-list');
+    linkBox.innerHTML = '';
+    if (ul === null) {
+        linkBox.innerHTML = '<ul><li><a href="/sites/linkmap.html">Create</a></li></ul>';
+    } else linkBox.appendChild(ul);
+}
+
+export { startTimer, pauseTimer, stopTimer, updateLinks }
