@@ -20,7 +20,7 @@ const textSubjectEl = document.querySelector("#text-subject") as HTMLParagraphEl
 const textTotalEl = document.querySelector("#text-total") as HTMLParagraphElement;
 
 const linkmapEl = document.querySelector("#linkmap-container") as HTMLDivElement;
-const linklistEl = document.querySelector(".link-list") as HTMLUListElement;
+const linkBox = document.querySelector(".link-box") as HTMLElement;
 
 export {
     navigationEL, openBtnEl, closeBtnEl,
@@ -28,5 +28,5 @@ export {
     timerMinEl, timerSecEl,
     categoryEl, subjectEl,
     chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl,
-    linkmapEl, linklistEl
+    linkmapEl, linkBox
 }
