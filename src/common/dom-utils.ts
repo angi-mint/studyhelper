@@ -28,7 +28,8 @@ const categoryForm = document.querySelector('#category-form') as HTMLFormElement
 const categoryInput = document.querySelector('#category-input') as HTMLInputElement;
 const subjectForm = document.querySelector('#subject-form') as HTMLFormElement;
 const subjectInput = document.querySelector('#subject-input') as HTMLInputElement;
-
+const categoryList = document.querySelector('#category-list') as HTMLUListElement;
+const subjectList = document.querySelector('#subject-list') as HTMLUListElement;
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,
@@ -36,5 +37,5 @@ export {
     categoryEl, subjectEl,
     chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl,
     linkmapEl, linkBox, dataButton,
-    categoryForm, categoryInput, subjectForm, subjectInput
+    categoryForm, categoryInput, subjectForm, subjectInput, categoryList, subjectList
 }
