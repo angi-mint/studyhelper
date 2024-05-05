@@ -1,21 +1,14 @@
 import './styles/styles.css';
 import { initNav } from "./common/utility.ts";
-
-import { getCategoryTimes, getSubjectTimes, totalTimeSpent } from "./common/localstorage.ts";
+import { getCategoryTimes, getSubjectTimes, settings, totalTimeSpent } from "./common/localstorage.ts";
 import { createPieChart } from "./analytics/chart.ts";
 import { chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl } from "./common/dom-utils.ts";
 
 initNav();
 
-let times: number[] = getCategoryTimes();
-const labels: string[] = ['lecture', 'project', 'studying']
-
-createPieChart(chartCategoryEl,textCategoryEl, times, labels)
-
-let subjectTimes: number[] = getSubjectTimes();
-const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
-
-const totalTime = totalTimeSpent();
-if (totalTime !== 0) textTotalEl.innerHTML = `You have spent a total of ${totalTime} hours studying.`
-
-createPieChart(chartSubjectEl, textSubjectEl, subjectTimes, subjects)
+const totalTime: number = totalTimeSpent();
+if (totalTime !== 0) {
+    textTotalEl.innerHTML = `You have spent a total of ${totalTime} hours studying.`
+    createPieChart(chartCategoryEl, textCategoryEl, getCategoryTimes(), settings("category"))
+    createPieChart(chartSubjectEl, textSubjectEl, getSubjectTimes(), settings("subject"))
+}
