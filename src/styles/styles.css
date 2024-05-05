@@ -125,6 +125,7 @@ h1 {
 }
 
 #close-btn {
+    background-color: transparent;
     position: absolute;
     top: var(--spacing-4);
     right: var(--spacing-4);
@@ -241,4 +242,24 @@ svg {
     border: none;
     background-color: inherit;
     cursor: pointer;
+}
+
+#settings-form, #settings-list {
+    display: flex;
+    justify-content: space-around;
+    margin: var(--spacing-3) 0;
+}
+
+#settings-form {
+    text-align: center;
+}
+
+.popup {
+    position: fixed;
+    bottom: var(--spacing-3);
+    right: 0;
+    padding: var(--spacing-3);
+    background-color: var(--color-backdrop);
+    border: 2px solid var(--color-background);
+    border-radius: var(--border-radius-2) 0 0 var(--border-radius-2);
 }
