@@ -1,11 +1,11 @@
 import './styles/styles.css';
 import { generateLinkList, initNav } from "./common/utility.ts";
-import { setLink } from "./common/localstorage.ts";
+import {setLink, settings} from "./common/localstorage.ts";
 import { linkmapEl } from "./common/dom-utils.ts";
 
 initNav();
 
-const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
+const subjects: Array<string> = settings("subject");
 
 subjects.forEach((subject: string) => {
     createSubjectDiv(subject);
