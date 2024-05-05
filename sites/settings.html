@@ -73,25 +73,29 @@
     <h1>Settings</h1>
     <p class="info">Create new categories and subjects. Press Enter to add.</p>
     <div id="settings-form">
-        <form id="category-form">
-            <label for="category-input">Add a new Category:</label><br>
-            <input type="text" name="category-input" id="category-input">
-        </form>
-        <form id="subject-form">
-            <label for="subject-input">Add a new Subject:</label><br>
-            <input type="text" name="subject-input" id="subject-input">
-        </form>
-    </div>
-    <div id="settings-list">
-        <div>
-            <p>Your Categories:</p>
-            <ul id="category-list">
-            </ul>
+        <div class="settings-wrapper">
+            <h2>Categories</h2>
+            <form id="category-form">
+                <label for="category-input">Add a new Category:</label><br>
+                <input type="text" name="category-input" id="category-input">
+            </form>
+            <div>
+                <p>Your Categories:</p>
+                <ul id="category-list">
+                </ul>
+            </div>
         </div>
-        <div>
-            <p>Your Subjects:</p>
-            <ul id="subject-list">
-            </ul>
+        <div class="settings-wrapper">
+            <h2>Subjects</h2>
+            <form id="subject-form">
+                <label for="subject-input">Add a new Subject:</label><br>
+                <input type="text" name="subject-input" id="subject-input">
+            </form>
+            <div>
+                <p>Your Subjects:</p>
+                <ul id="subject-list">
+                </ul>
+            </div>
         </div>
     </div>
 </main>
