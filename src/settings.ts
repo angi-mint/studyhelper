@@ -2,7 +2,9 @@ import './styles/styles.css';
 
 import {categoryForm, categoryInput, subjectForm, subjectInput} from "./common/dom-utils.ts";
 import {settings} from "./common/localstorage.ts";
+import {initNav} from "./common/utility.ts";
 
+initNav();
 categoryForm.addEventListener('submit', function(event: Event) {
     event.preventDefault();
 
