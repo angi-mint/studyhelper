@@ -4,7 +4,7 @@ import {
     categoryEl, subjectEl, linkBox
 } from "../common/dom-utils.ts";
 import {generateLinkList} from "../common/utility.ts";
-import { saveSession } from "../common/localstorage.ts";
+import {saveSession, settings} from "../common/localstorage.ts";
 
 const timeMin: number = Number(timerMinEl.textContent);
 const timeSec: number= Number(timerSecEl.textContent);
@@ -15,9 +15,9 @@ const start: Array<number> = [timeMin, timeSec];
 let minutes: number = timeMin;
 let seconds: number = timeSec;
 
-function toggleState(elements: ( HTMLSelectElement)[] ) {
+function toggleState(elements: Array<HTMLSelectElement> ) {
     elements.forEach(element => {
-            element.disabled = !element.disabled;
+        element.disabled = !element.disabled;
     });
 }
 
@@ -50,8 +50,8 @@ function startTimer() {
 
 function pauseTimer() {
     pauseBtnEl.disabled = true;
-
     startBtnEl.disabled = false;
+
     clearInterval(interval)
 }
 
@@ -81,4 +81,22 @@ function updateLinks() {
     } else linkBox.appendChild(ul);
 }
 
-export { startTimer, pauseTimer, stopTimer, updateLinks }
+function updateSelect() {
+    const categories = settings('category');
+    const subjects = settings('subject');
+    categories.forEach((category: string) => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.innerText = category;
+        categoryEl.appendChild(option);
+    });
+
+    subjects.forEach((subject: string) => {
+        const option = document.createElement('option');
+        option.value = subject;
+        option.innerText = subject;
+        subjectEl.appendChild(option);
+    });
+}
+
+export { startTimer, pauseTimer, stopTimer, updateLinks, updateSelect }
