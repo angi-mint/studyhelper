@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Analytics</title>
-    <script defer type="module" src="/src/analytics.ts"></script>
+    <title>Link Map</title>
+    <script defer type="module" src="/src/linkmap.ts"></script>
 </head>
 <body>
     <header>
@@ -60,19 +60,9 @@
     </nav>
 </header>
     <main>
-        <h1>Analytics</h1>
-        <p id="text-total" class="info">You haven't spent any time studying yet.</p>
-        <div class="an-container">
-            <div class="an-chart">
-                <h2>Category</h2>
-                <p id="text-category">There is nothing to see yet</p>
-                <canvas id="chart-category"></canvas>
-            </div>
-            <div class="an-chart">
-                <h2>Subject</h2>
-                <p id="text-subject">There is nothing to see yet</p>
-                <canvas id="chart-subject"></canvas>
-            </div>
+        <h1>Link Map</h1>
+        <div id="linkmap-container">
+            <p class="info">There are no subjects to add links to yet.</p>
         </div>
     </main>
 </body>
