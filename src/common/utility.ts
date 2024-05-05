@@ -1,4 +1,4 @@
-import { closeBtnEl, navigationEL, openBtnEl } from "./dom-utils.ts";
+import {closeBtnEl, dataButton, navigationEL, openBtnEl} from "./dom-utils.ts";
 import { Link } from "./interfaces.ts";
 import { getLinks } from "./localstorage.ts";
 
@@ -10,6 +10,7 @@ function initNav() {
     closeBtnEl.addEventListener("click", function () {
         navigationEL.style.width = "0"
     })
+    dataButton.addEventListener("click", generateExampleData);
 }
 
 function generateLinkList(subject: string): HTMLUListElement | null {
@@ -34,4 +35,20 @@ function generateLinkList(subject: string): HTMLUListElement | null {
     return linkList;
 }
 
-export { initNav, generateLinkList }
+function popUp(message: string) {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = message;
+
+    document.body.appendChild(popup);
+    setTimeout(() => {
+        popup.remove();
+    }, 2000);
+}
+
+function generateExampleData() {
+    localStorage.setItem('trackedSessions', JSON.stringify([{ category: 'lecture', subject: 't2', time: 8600 }, { category: 'lecture', subject: 't3', time: 5900 }, { category: 'lecture', subject: 'u1', time: 5700 }, { category: 'lecture', subject: 'd1', time: 3300 }, { category: 'lecture', subject: 'p1', time: 4800 }, { category: 'project', subject: 't2', time: 3600 }, { category: 'project', subject: 't3', time: 8000 }, { category: 'project', subject: 'u1', time: 2700 }, { category: 'project', subject: 'd1', time: 3600 }, { category: 'project', subject: 'p1', time: 1800 }, { category: 'studying', subject: 't2', time: 3600 }, { category: 'studying', subject: 't3', time: 2300 }, { category: 'studying', subject: 'u1', time: 2700 }, { category: 'studying', subject: 'd1', time: 7300 }, { category: 'studying', subject: 'p1', time: 2600 },]));
+    localStorage.setItem('link-t2', JSON.stringify([{"name":"Moodle","url":"https://moodle.mosbach.dhbw.de/course/view.php?id=18138"},{"name":"mdn","url":"https://developer.mozilla.org/en-US/"},{"name":"JSInfo","url":"https://javascript.info/"},]));
+}
+
+export { initNav, generateLinkList, popUp }
