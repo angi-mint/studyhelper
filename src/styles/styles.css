@@ -61,15 +61,10 @@
     color: var(--color-main);
 }
 
-#main-page {
-    background-image: url("/background20.png");
-    background-color: #f0f0f0;
-}
-
 h1 {
     font-size: 3rem;
     text-align: center;
-    margin: var(--spacing-4) 0;
+    margin-bottom: var(--spacing-4);
 }
 
 /* Link Box */
@@ -89,7 +84,8 @@ h1 {
     font-family: "ff-nexus-typewriter", sans-serif;
     margin-bottom: 10px;
     text-align: center;
-    background-color: var(--color-ice);
+    background-color: var(--color-offwhite);
+    border: var(--border);
     border-radius: var(--border-radius-1);
 }
 
@@ -146,6 +142,7 @@ h1 {
 .btn:disabled {
     cursor: not-allowed;
     color: #ccc;
+    background-color: var(--color-backdrop);
 }
 
 svg {
@@ -186,14 +183,14 @@ svg {
 }
 
 .an-chart {
-    width: 30%;
+    width: 40%;
     border: var(--border);
     margin: var(--spacing-2);
     border-radius: var(--border-radius-2);
-    padding-bottom: var(--spacing-2);
+    padding-bottom: var(--spacing-3);
 }
 
-.an-chart h2 {
+.an-chart h2, .settings-wrapper h2 {
     text-align: center;
     padding: var(--spacing-2);
     background-color: var(--color-ice);
@@ -276,14 +273,28 @@ svg {
     cursor: pointer;
 }
 
-#settings-form, #settings-list {
+#settings-form {
     display: flex;
     justify-content: space-around;
     margin: var(--spacing-3) 0;
 }
 
-#settings-form {
-    text-align: center;
+.settings-wrapper {
+    border-radius: var(--border-radius-2);
+    border: var(--border);
+}
+
+.settings-wrapper p, .settings-wrapper ul {
+    margin: var(--spacing-3);
+}
+
+.settings-wrapper li {
+    list-style: circle inside;
+}
+
+.settings-wrapper form {
+    padding: var(--spacing-3);
+    border-bottom: var(--border);
 }
 
 .popup {
