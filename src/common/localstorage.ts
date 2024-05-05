@@ -1,4 +1,5 @@
 import {Link, Session} from "./interfaces.ts";
+import { popUp } from "./utility.ts";
 
 function toHours(timeInSec: number) {
     return Number((timeInSec / 3600).toFixed(2));
@@ -22,8 +23,8 @@ function saveSession(category: string, subject: string, timeInSec: number) {
     localStorage.setItem('trackedSessions', JSON.stringify(trackedSessions));
 }
 
-function getTimes(items: string[], property: keyof Session): number[] {
-    let times: number[] = Array(items.length).fill(0);
+function getTimes(items: Array<string>, property: keyof Session): Array<number> {
+    let times: Array<number> = Array(items.length).fill(0);
 
     if (!localStorage.getItem("trackedSessions")) return times;
     let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
@@ -38,13 +39,13 @@ function getTimes(items: string[], property: keyof Session): number[] {
     return times.map(toHours);
 }
 
-function getCategoryTimes(): number[] {
-    const categories: string[] = ['lecture', 'project', 'studying'];
+function getCategoryTimes(): Array<number> {
+    const categories: Array<string> = settings("category");
     return getTimes(categories, 'category');
 }
 
-function getSubjectTimes(): number[] {
-    const subjects: string[] = ['t2', 't3', 'u1', 'd1', 'p1'];
+function getSubjectTimes(): Array<number> {
+    const subjects: Array<string> = settings("subject");
     return getTimes(subjects, 'subject');
 }
 
@@ -69,4 +70,27 @@ function getLinks(subject: string): Array<Link> {
     return JSON.parse(localStorage.getItem(`link-${subject}`) as string);
 }
 
-export { saveSession, getCategoryTimes, getSubjectTimes, totalTimeSpent, setLink, getLinks }
+function settings(key: string, value?: string): Array<string> {
+    if (key !== 'category' && key !== 'subject') {
+        popUp('Invalid key!');
+        return [];
+    }
+    const items: Array<string> = JSON.parse(localStorage.getItem(key) as string || '[]');
+
+    if (value) {
+        if (!items.includes(value)) {
+            items.push(value);
+            localStorage.setItem(key, JSON.stringify(items));
+            popUp(`${value} added!`)
+        } else {
+            popUp(`${key} already exists!`);
+        }
+    }
+    return items;
+}
+
+export {
+    saveSession, totalTimeSpent,
+    setLink, getLinks,
+    settings, getCategoryTimes, getSubjectTimes
+}
