@@ -19,10 +19,22 @@ const textCategoryEl = document.querySelector("#text-category") as HTMLParagraph
 const textSubjectEl = document.querySelector("#text-subject") as HTMLParagraphElement;
 const textTotalEl = document.querySelector("#text-total") as HTMLParagraphElement;
 
+const linkmapEl = document.querySelector("#linkmap-container") as HTMLDivElement;
+const linkBox = document.querySelector(".link-box") as HTMLElement;
+
+const dataButton = document.querySelector('#createData') as HTMLButtonElement;
+
+const categoryForm = document.querySelector('#category-form') as HTMLFormElement;
+const categoryInput = document.querySelector('#category-input') as HTMLInputElement;
+const subjectForm = document.querySelector('#subject-form') as HTMLFormElement;
+const subjectInput = document.querySelector('#subject-input') as HTMLInputElement;
+
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
     categoryEl, subjectEl,
-    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl
+    chartCategoryEl, chartSubjectEl, textCategoryEl, textSubjectEl, textTotalEl,
+    linkmapEl, linkBox, dataButton,
+    categoryForm, categoryInput, subjectForm, subjectInput
 }
