@@ -1,9 +1,9 @@
 import Chart from "chart.js/auto";
-function indexHighestValue(times: number[]) {
+function indexHighestValue(times: Array<number>) {
     // return index where the highest value is found
     return times.indexOf(Math.max(...times));
 }
-function createPieChart(canvas: HTMLCanvasElement, paragraph: HTMLParagraphElement, values: number[], labels: string[]) {
+function createPieChart(canvas: HTMLCanvasElement, paragraph: HTMLParagraphElement, values: Array<number>, labels: Array<string>) {
 
     paragraph.innerHTML = `${labels[indexHighestValue(values)]} consumed most of your time with ${values[indexHighestValue(values)]} hours.`;
 
@@ -34,4 +34,4 @@ function createPieChart(canvas: HTMLCanvasElement, paragraph: HTMLParagraphEleme
     });
 }
 
-export {createPieChart }
+export { createPieChart }
