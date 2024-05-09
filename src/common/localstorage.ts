@@ -5,6 +5,7 @@ function toHours(timeInSec: number) {
     return Number((timeInSec / 3600).toFixed(2));
 }
 
+// save the user session to the local storage with the subject and category
 function saveSession(category: string, subject: string, timeInSec: number) {
     // if there is no entry yey, create an empty one
     if (!localStorage.getItem("trackedSessions")) localStorage.setItem("trackedSessions", "[]");
@@ -20,15 +21,21 @@ function saveSession(category: string, subject: string, timeInSec: number) {
     } else {
         trackedSessions[sessionIndex].time += timeInSec;
     }
+    // save the updated trackedSessions to the local storage
     localStorage.setItem('trackedSessions', JSON.stringify(trackedSessions));
+    popUp(`Session saved! ${Math.trunc(timeInSec/60)}m (${category}, ${subject})`);
 }
 
+// get the total time spent on a category or subject
 function getTimes(items: Array<string>, property: keyof Session): Array<number> {
     let times: Array<number> = Array(items.length).fill(0);
 
+    // if there are no tracked sessions, return the array of zeros
     if (!localStorage.getItem("trackedSessions")) return times;
+    // else get the tracked sessions and update the times array
     let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
 
+    // iterate over the tracked sessions and update the times array when the category or subject matches
     trackedSessions.forEach((session: Session) => {
         const index: number = items.indexOf(<string>session[property]);
         if (index !== -1) {
@@ -63,6 +70,7 @@ function setLink(subject: string, link: string, name: string) {
         links.push({ name, url: link });
         localStorage.setItem(`link-${subject}`, JSON.stringify(links));
     }
+    popUp(`Link '${name}' added!`);
 }
 
 function getLinks(subject: string): Array<Link> {
