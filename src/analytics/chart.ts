@@ -4,9 +4,9 @@ function indexHighestValue(times: Array<number>) {
     return times.indexOf(Math.max(...times));
 }
 function createPieChart(canvas: HTMLCanvasElement, paragraph: HTMLParagraphElement, values: Array<number>, labels: Array<string>) {
-
+    // display the category or subject which consumed most of the time
     paragraph.innerHTML = `${labels[indexHighestValue(values)]} consumed most of your time with ${values[indexHighestValue(values)]} hours.`;
-
+    // create a pie chart with the given values and labels
     new Chart(canvas, {
         type: 'pie',
         data: {
