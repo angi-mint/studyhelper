@@ -8,7 +8,7 @@ function initNav() {
 
     })
     closeBtnEl.addEventListener("click", function () {
-        navigationEL.style.width = "0"
+        navigationEL.style.width = "0";
     })
     dataButton.addEventListener("click", generateExampleData);
 }
@@ -52,6 +52,7 @@ function generateExampleData() {
     localStorage.setItem('trackedSessions', JSON.stringify([{ category: 'Lecture', subject: 'T2 Frontend', time: 8600 }, { category: 'Lecture', subject: 'T3 WebIT', time: 5900 }, { category: 'Lecture', subject: 'U1 Psychologie', time: 5700 }, { category: 'Lecture', subject: 'D1 Datenanalyse', time: 3300 }, { category: 'Lecture', subject: 'P1 Scrum', time: 4800 }, { category: 'Project', subject: 'T2 Frontend', time: 3600 }, { category: 'Project', subject: 'T3 WebIT', time: 8000 }, { category: 'Project', subject: 'U1 Psychologie', time: 2700 }, { category: 'Project', subject: 'D1 Datenanalyse', time: 3600 }, { category: 'Project', subject: 'P1 Scrum', time: 1800 }, { category: 'Studying', subject: 'T2 Frontend', time: 3600 }, { category: 'Studying', subject: 'T3 WebIT', time: 2300 }, { category: 'Studying', subject: 'U1 Psychologie', time: 2700 }, { category: 'Studying', subject: 'D1 Datenanalyse', time: 7300 }, { category: 'Studying', subject: 'P1 Scrum', time: 2600 },]));
     localStorage.setItem('link-T2 Frontend', JSON.stringify([{"name":"Moodle","url":"https://moodle.mosbach.dhbw.de/course/view.php?id=18138"},{"name":"mdn","url":"https://developer.mozilla.org/en-US/"},{"name":"JSInfo","url":"https://javascript.info/"},]));
     popUp('Example data generated');
+    location.reload();
 }
 
 export { initNav, generateLinkList, popUp }

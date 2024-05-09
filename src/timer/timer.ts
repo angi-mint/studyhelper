@@ -90,20 +90,21 @@ function updateSelect() {
         subjectEl.disabled = false;
         startBtnEl.disabled = false;
         selectMessage.innerText = '';
-    }
-    categories.forEach((category: string) => {
-        const option = document.createElement('option');
-        option.value = category;
-        option.innerText = category;
-        categoryEl.appendChild(option);
-    });
 
-    subjects.forEach((subject: string) => {
-        const option = document.createElement('option');
-        option.value = subject;
-        option.innerText = subject;
-        subjectEl.appendChild(option);
-    });
+        categories.forEach((category: string) => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.innerText = category;
+            categoryEl.appendChild(option);
+        });
+
+        subjects.forEach((subject: string) => {
+            const option = document.createElement('option');
+            option.value = subject;
+            option.innerText = subject;
+            subjectEl.appendChild(option);
+        });
+    }
 }
 
 export { startTimer, pauseTimer, stopTimer, updateLinks, updateSelect }

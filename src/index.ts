@@ -11,4 +11,4 @@ updateSelect();
 startBtnEl.addEventListener("click", startTimer);
 pauseBtnEl.addEventListener("click", pauseTimer);
 stopBtnEl.addEventListener("click", stopTimer);
-subjectEl.addEventListener("change", updateLinks)
+subjectEl.addEventListener("change", updateLinks);

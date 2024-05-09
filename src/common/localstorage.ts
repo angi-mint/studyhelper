@@ -59,7 +59,7 @@ function getSubjectTimes(): Array<number> {
 function totalTimeSpent(): number {
     if (!localStorage.getItem("trackedSessions")) return 0;
     let trackedSessions: Array<Session> = JSON.parse(localStorage.getItem("trackedSessions") as string);
-    return toHours(trackedSessions.reduce((acc: number, session: Session) => acc + session.time, 0))
+    return toHours(trackedSessions.reduce((acc: number, session: Session) => acc + session.time, 0));
 }
 
 function setLink(subject: string, link: string, name: string) {
@@ -89,7 +89,7 @@ function settings(key: string, value?: string): Array<string> {
         if (!items.includes(value)) {
             items.push(value);
             localStorage.setItem(key, JSON.stringify(items));
-            popUp(`${value} added!`)
+            popUp(`${value} added!`);
         } else {
             popUp(`${key} already exists!`);
         }

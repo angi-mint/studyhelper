@@ -8,7 +8,7 @@ initNav();
 
 const totalTime: number = totalTimeSpent();
 if (totalTime !== 0) {
-    textTotalEl.innerHTML = `You have spent a total of ${totalTime} hours studying.`
-    createPieChart(chartCategoryEl, textCategoryEl, getCategoryTimes(), settings("category"))
-    createPieChart(chartSubjectEl, textSubjectEl, getSubjectTimes(), settings("subject"))
+    textTotalEl.innerHTML = `You have spent a total of ${totalTime} hours studying.`;
+    createPieChart(chartCategoryEl, textCategoryEl, getCategoryTimes(), settings("category"));
+    createPieChart(chartSubjectEl, textSubjectEl, getSubjectTimes(), settings("subject"));
 }

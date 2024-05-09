@@ -31,6 +31,7 @@ const subjectInput = document.querySelector('#subject-input') as HTMLInputElemen
 const categoryList = document.querySelector('#category-list') as HTMLUListElement;
 const subjectList = document.querySelector('#subject-list') as HTMLUListElement;
 const selectMessage = document.querySelector('#select-warning') as HTMLParagraphElement;
+
 export {
     navigationEL, openBtnEl, closeBtnEl,
     startBtnEl, pauseBtnEl, stopBtnEl,

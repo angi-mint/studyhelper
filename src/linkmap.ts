@@ -49,7 +49,7 @@ function createNewLink(subject: string) {
         const formData: FormData = new FormData(form);
         // ?
         const linkName = formData.get('link-name') as string;
-        const linkUrl = formData.get('link-url') as string
+        const linkUrl = formData.get('link-url') as string;
 
         // set the link in localstorage and close the modal
         setLink(subject, linkUrl, linkName);
