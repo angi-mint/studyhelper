@@ -79,16 +79,13 @@
         </div>
         <div class="timer-options">
             <label for="category">Category</label>
-            <select id="category" required>
-                <option value="No Category">No Category</option>
-            </select>
+            <select id="category" disabled></select>
             <label for="subject">Subject</label>
-            <select id="subject" required>
-                <option value="No Subject">No Subject</option>
-            </select>
+            <select id="subject" disabled></select>
+            <p id="select-warning">Create a category and subject first</p>
         </div>
         <div class="controller">
-            <button class="btn btn-start" autocomplete="off">
+            <button class="btn btn-start" disabled autocomplete="off">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"/>
                 </svg>

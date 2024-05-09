@@ -1,7 +1,7 @@
 import {
     startBtnEl, pauseBtnEl, stopBtnEl,
     timerMinEl, timerSecEl,
-    categoryEl, subjectEl, linkBox
+    categoryEl, subjectEl, linkBox, selectMessage
 } from "../common/dom-utils.ts";
 import {generateLinkList} from "../common/utility.ts";
 import {saveSession, settings} from "../common/localstorage.ts";
@@ -84,6 +84,13 @@ function updateLinks() {
 function updateSelect() {
     const categories = settings('category');
     const subjects = settings('subject');
+
+    if (categories.length > 0 && subjects.length > 0) {
+        categoryEl.disabled = false;
+        subjectEl.disabled = false;
+        startBtnEl.disabled = false;
+        selectMessage.innerText = '';
+    }
     categories.forEach((category: string) => {
         const option = document.createElement('option');
         option.value = category;
